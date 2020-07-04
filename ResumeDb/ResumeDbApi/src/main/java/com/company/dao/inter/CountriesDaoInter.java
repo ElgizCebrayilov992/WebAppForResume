@@ -5,24 +5,24 @@
  */
 package com.company.dao.inter;
 
+import com.company.entity.Countries;
 import com.company.entity.DriverCat;
-import com.company.entity.User;
 import java.util.List;
 
 /**
  *
  * @author virtu
  */
-public interface DriverCatDaoInter {
+public interface CountriesDaoInter {
 
-    public List<DriverCat> getAll();
+    public List<Countries> getAll();
 
-    public DriverCat getById(int id);
+    public Countries getById(int id);
 
-    public boolean addDriverCat(DriverCat u);
+    public boolean addCountries(Countries u);
 
-    public boolean updateDriverCat(DriverCat u);
+    public boolean updateCountries(Countries u);
 
-    public boolean removeDriverCat(int id);
+    public boolean removeCountries(int id);
 
 }

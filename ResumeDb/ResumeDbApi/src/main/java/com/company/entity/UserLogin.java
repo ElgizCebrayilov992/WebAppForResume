@@ -15,6 +15,7 @@ public class UserLogin {
     private int id;
     private User userId;
     private Login loginId;
+    
 
     public UserLogin() {
     }
@@ -51,10 +52,10 @@ public class UserLogin {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + this.id;
-        hash = 67 * hash + Objects.hashCode(this.userId);
-        hash = 67 * hash + Objects.hashCode(this.loginId);
+        int hash = 7;
+        hash = 19 * hash + this.id;
+        hash = 19 * hash + Objects.hashCode(this.userId);
+        hash = 19 * hash + Objects.hashCode(this.loginId);
         return hash;
     }
 
@@ -86,6 +87,7 @@ public class UserLogin {
     public String toString() {
         return "UserLogin{" + "id=" + id + ", userId=" + userId + ", loginId=" + loginId + '}';
     }
+
     
-    
+
 }

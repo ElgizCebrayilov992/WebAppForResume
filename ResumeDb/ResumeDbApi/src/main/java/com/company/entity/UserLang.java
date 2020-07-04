@@ -33,6 +33,9 @@ public class UserLang {
         this.certificate = certificate;
     }
 
+
+    
+
     public int getId() {
         return id;
     }

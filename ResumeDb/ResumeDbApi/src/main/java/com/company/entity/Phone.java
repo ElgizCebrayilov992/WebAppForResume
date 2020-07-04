@@ -14,17 +14,17 @@ import java.util.Objects;
 public class Phone {
     private int id;
     private String type;
-    private String name;
+    private String phone_number;
     private User userId;
 
-    public Phone(int id, String type, String name, User userId) {
-        this.id = id;
-        this.type = type;
-        this.name = name;
-        this.userId = userId;
+    public Phone() {
     }
 
-    public Phone() {
+    public Phone(int id, String type, String phone_number, User userId) {
+        this.id = id;
+        this.type = type;
+        this.phone_number = phone_number;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -43,12 +43,12 @@ public class Phone {
         this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public User getUserId() {
@@ -61,11 +61,11 @@ public class Phone {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.id;
-        hash = 29 * hash + Objects.hashCode(this.type);
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + Objects.hashCode(this.userId);
+        int hash = 5;
+        hash = 53 * hash + this.id;
+        hash = 53 * hash + Objects.hashCode(this.type);
+        hash = 53 * hash + Objects.hashCode(this.phone_number);
+        hash = 53 * hash + Objects.hashCode(this.userId);
         return hash;
     }
 
@@ -87,7 +87,7 @@ public class Phone {
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.phone_number, other.phone_number)) {
             return false;
         }
         if (!Objects.equals(this.userId, other.userId)) {
@@ -98,7 +98,11 @@ public class Phone {
 
     @Override
     public String toString() {
-        return "Phone{" + "id=" + id + ", type=" + type + ", name=" + name + ", userId=" + userId + '}';
+        return "Phone{" + "id=" + id + ", type=" + type + ", phone_number=" + phone_number + ", userId=" + userId + '}';
     }
+
+    
+    
+    
     
 }

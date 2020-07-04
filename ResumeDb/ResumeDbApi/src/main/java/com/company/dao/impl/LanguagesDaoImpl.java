@@ -6,8 +6,8 @@
 package com.company.dao.impl;
 
 import com.company.dao.inter.AbstractDAO;
-import com.company.dao.inter.DriverCatDaoInter;
-import com.company.entity.DriverCat;
+import com.company.dao.inter.LanguagesDaoInter;
+import com.company.entity.Languages;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,24 +19,24 @@ import java.util.List;
  *
  * @author virtu
  */
-public class DriverCatDaoImpl extends AbstractDAO implements DriverCatDaoInter {
+public class LanguagesDaoImpl extends AbstractDAO implements LanguagesDaoInter{
 
-    private DriverCat getDriverCat(ResultSet rs) throws Exception {
+   private Languages getLanguages(ResultSet rs) throws Exception {
         int id = rs.getInt("id");
         String name = rs.getString("name");
-        return new DriverCat(id, name);
+        return new Languages(id, name);
     }
 
     @Override
-    public List<DriverCat> getAll() {
-        List<DriverCat> list = new ArrayList<>();
-        String sql = "SELECT * FROM driver_cat";
+    public List<Languages> getAll() {
+        List<Languages> list = new ArrayList<>();
+        String sql = "SELECT * FROM languages";
         try (Connection con = connection()) {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.execute();
             ResultSet rs = stm.getResultSet();
             while (rs.next()) {
-                DriverCat u = getDriverCat(rs);
+                Languages u = getLanguages(rs);
                 list.add(u);
             }
         } catch (Exception e) {
@@ -46,14 +46,14 @@ public class DriverCatDaoImpl extends AbstractDAO implements DriverCatDaoInter {
     }
 
     @Override
-    public DriverCat getById(int id) {
-        DriverCat u = null;
+    public Languages getById(int id) {
+        Languages u = null;
         try (Connection c = connection()) {
             Statement stm = c.createStatement();
-            stm.execute("SELECT * FROM driver_cat where id=" + id);
+            stm.execute("SELECT * FROM languages where id=" + id);
             ResultSet rs = stm.getResultSet();
             while (rs.next()) {
-                u = getDriverCat(rs);
+                u = getLanguages(rs);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -63,9 +63,9 @@ public class DriverCatDaoImpl extends AbstractDAO implements DriverCatDaoInter {
     }
 
     @Override
-    public boolean addDriverCat(DriverCat u) {
+    public boolean addLanguages(Languages u) {
         try (Connection c = connection()) {
-            PreparedStatement ps = c.prepareStatement("INSERT INTO driver_cat ( name ) VALUES( ? )");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO languages ( name ) VALUES( ? )");
             ps.setString(1, u.getName());
             ps.execute();
         } catch (Exception e) {
@@ -76,9 +76,9 @@ public class DriverCatDaoImpl extends AbstractDAO implements DriverCatDaoInter {
     }
 
     @Override
-    public boolean updateDriverCat(DriverCat u) {
+    public boolean updateLanguages(Languages u) {
         try (Connection c = connection()) {
-            PreparedStatement ps = c.prepareStatement("update driver_cat set name=? where id=?");
+            PreparedStatement ps = c.prepareStatement("update languages set name=? where id=?");
             ps.setString(1, u.getName());
             ps.setInt(2, u.getId());
             ps.execute();
@@ -90,10 +90,10 @@ public class DriverCatDaoImpl extends AbstractDAO implements DriverCatDaoInter {
     }
 
     @Override
-    public boolean removeDriverCat(int id) {
+    public boolean removeLanguages(int id) {
         try (Connection connect = connection()) {
             Statement stm = connect.createStatement();
-            stm.execute("DELETE FROM driver_cat WHERE id=" + id + ";");
+            stm.execute("DELETE FROM languages WHERE id=" + id + ";");
             ResultSet rs = stm.getResultSet();
 
         } catch (Exception ex) {
@@ -102,6 +102,5 @@ public class DriverCatDaoImpl extends AbstractDAO implements DriverCatDaoInter {
         }
         return true;
 
-    }
-
+    }  
 }

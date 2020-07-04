@@ -6,23 +6,22 @@
 package com.company.dao.inter;
 
 import com.company.entity.DriverCat;
-import com.company.entity.User;
+import com.company.entity.UserDriver;
 import java.util.List;
 
 /**
  *
  * @author virtu
  */
-public interface DriverCatDaoInter {
+public interface UserDriverDaoInter {
 
-    public List<DriverCat> getAll();
+    public List<UserDriver> getAll();
 
-    public DriverCat getById(int id);
+    public UserDriver getById(int id);
 
-    public boolean addDriverCat(DriverCat u);
+    public boolean addUserDriver(UserDriver u);
 
-    public boolean updateDriverCat(DriverCat u);
+    public boolean updateUserDriver(UserDriver u);
 
-    public boolean removeDriverCat(int id);
-
+    public boolean removeUserDriver(int id);
 }
